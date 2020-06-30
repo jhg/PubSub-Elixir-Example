@@ -1,18 +1,17 @@
 defmodule PubSub do
   @moduledoc """
-  Documentation for PubSub.
+  Example about PubSub.
   """
+  use Application
 
-  @doc """
-  Hello world.
+  @impl true
+  def start(_type, _args) do
+    # Although we don't use the supervisor name below directly,
+    # it can be useful when debugging or introspecting the system.
+    children = [
+      {PubSub.Server, name: PubSub.Server},
+    ]
 
-  ## Examples
-
-      iex> PubSub.hello()
-      :world
-
-  """
-  def hello do
-    :world
+    Supervisor.start_link(children, strategy: :one_for_all)
   end
 end
