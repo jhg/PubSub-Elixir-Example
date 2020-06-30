@@ -1,6 +1,6 @@
 # PubSub
 
-**TODO: Add description**
+PubSub Elixir Example.
 
 ## Installation
 
